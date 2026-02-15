@@ -195,9 +195,6 @@ Located in `emission_factors.json`:
   }
 }
 ```
-
-These are approximations based on EPA and IPCC data, adjusted for hackathon scope.
-
 ## Troubleshooting
 
 **"Module not found" errors**
@@ -226,7 +223,6 @@ lsof -ti:8000 | xargs kill
 
 ## Development Notes
 
-- Built for Tartan Hacks 2025 hackathon
 - Designed to work with single-page frontend (no database required for MVP)
 - AI responses tuned for friendly, motivating tone
 - All calculations done server-side for accuracy
