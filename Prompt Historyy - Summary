@@ -1,0 +1,14 @@
+First prompt requested with the help of Claude.ai  - sonnet 4.5 to feed single prompt to antigravity’s claude code opus 4.6 agent:
+Build Carb-Off, a single-page React climate action habit tracker that gamifies carbon reduction through daily task completion, streak mechanics, and community leaderboards, users complete a 7-step onboarding to establish their carbon baseline (location, commute, diet, energy usage), then receive personalized daily tasks categories with expandable quantity inputs and real-time CO2 calculations, earning streak days by completing 3/5 tasks with a streak shield at day 7, viewing their rank among mock leaderboard users sorted by streak length with human-readable CO2 equivalencies, and chatting with a keyword-detection bot to customize their daily plan based on preferences like "I work from home on Fridays"
+Editing and updates (manual prompts):
+Add a weekly summary modal showing the community contribution percentage
+Edit for a mobile-responsive design with an orange/green color scheme that makes climate action feel like playing Strava for the planet
+It should be a three-tab navigation (Today/Ranks/Chat)
+gradient progress bars, milestone badges
+Add a weekly summary modal that appears when users click a button in the Today tab footer: it should show their current streak, tasks completed vs total for the week, CO2 avoided in equivalencies, and community contribution percentage with a 'Keep going' button to close
+Add a swap functionality to the daily task checklist: put a swap button next to each task that replaces it with a different task from the same category when clicked, so users have flexibility without breaking the task mix
+Make the daily tasks expandable: when a user clicks on a task, it should expand to show a quantity input field with live CO2 calculation that updates as they type, plus a 'Log it' button that saves the specifics and shows instant feedback
+Add a filter toggle to the ranks tab to switch between global and the user's city from onboarding, recalculating the leaderboard to only show people from that city when filtered
+Add a Chat tab with two modes: keyword detection for phrases like 'I work from home on Fridays' or 'I'm vegan' that responds with 'Got it! I'll adjust your daily plan', and a fallback acknowledgment for free-form inputs about habits (generated using claude.ai sonnet 4.5)
+Add task-specific instant feedback after logging: when a user logs 'Take transit instead of driving · 30 km', show 'Logged! Saved driving 11 km in a car' along with the recalculated CO2 (generated using claude.ai sonnet 4.5)
+Add milestone badges to the leaderboard next to user names: blue badge '7' for 7-day streaks, orange badge '30' for 30-day streaks, and red badge 'C' for 100-day century club
