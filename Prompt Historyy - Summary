@@ -12,3 +12,5 @@ Add a filter toggle to the ranks tab to switch between global and the user's cit
 Add a Chat tab with two modes: keyword detection for phrases like 'I work from home on Fridays' or 'I'm vegan' that responds with 'Got it! I'll adjust your daily plan', and a fallback acknowledgment for free-form inputs about habits (generated using claude.ai sonnet 4.5)
 Add task-specific instant feedback after logging: when a user logs 'Take transit instead of driving · 30 km', show 'Logged! Saved driving 11 km in a car' along with the recalculated CO2 (generated using claude.ai sonnet 4.5)
 Add milestone badges to the leaderboard next to user names: blue badge '7' for 7-day streaks, orange badge '30' for 30-day streaks, and red badge 'C' for 100-day century club
+Add random facts about co2 emission (like news which can motivate people to save carbon emissions) on the today page.
+Edit the carbon numbers to make it more relatable and visual so that people can understand and visualize how much carbon is being released. Maybe compare it with something that they understand.
