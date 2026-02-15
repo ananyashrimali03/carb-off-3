@@ -33,7 +33,7 @@ backend/
 
 ### Prerequisites
 
-You need a Dedalus API key (which routes to Anthropic Claude). Get one from your hackathon organizers or sign up at dedaluslabs.ai.
+You need a Dedalus API key (which routes to Anthropic Claude). sign up at dedaluslabs.ai.
 
 ### Setup
 
