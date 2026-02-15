@@ -1,6 +1,9 @@
 # Deployed APP Link
 https://carb-off-3.onrender.com/
 
+# Portfolio
+Find under sustainable Design tab or All Projects: Title - Carb - Off
+
 # Carb-off Backend
 
 A FastAPI backend for CarbonBuddy that powers AI-driven climate action tracking through conversational interfaces and smart carbon calculations.
