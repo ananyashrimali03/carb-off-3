@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarbonBuddy - Your AI Climate Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        :root {
+            --primary-blue: #3B82F6;
+            --primary-blue-dark: #2563EB;
+            --primary-blue-light: #60A5FA;
+            --accent-green: #10B981;
+            --accent-green-dark: #059669;
+            --accent-green-light: #D1FAE5;
+            --streak-orange: #F59E0B;
+            --streak-orange-light: #FEF3C7;
+
+            --bg-light: #F8FAFC;
+            --surface-white: #FFFFFF;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --border-light: #E2E8F0;
+            --border-medium: #CBD5E1;
+
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+
+            --space-1: 8px;
+            --space-2: 16px;
+            --space-3: 24px;
+            --space-4: 32px;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .app {
+            max-width: 600px;
+            margin: 0 auto;
+            height: 100vh;
+            background: var(--surface-white);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ── Buttons ── */
+        .btn-bold {
+            padding: 12px 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: var(--radius-md);
+            background: var(--primary-blue);
+            color: var(--surface-white);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-bold:hover {
+            background: var(--primary-blue-dark);
+        }
+
+        .btn-bold:active {
+            transform: scale(0.98);
+        }
+
+        .btn-bold:disabled {
+            background: var(--border-medium);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .btn-bold.secondary {
+            background: var(--surface-white);
+            color: var(--text-primary);
+            border: 1px solid var(--border-medium);
+        }
+
+        .btn-bold.secondary:hover {
+            background: var(--bg-light);
+        }
+
+        /* ── Tabs ── */
+        .tabs {
+            display: flex;
+            background: var(--surface-white);
+            border-bottom: 2px solid var(--border-light);
+            flex-shrink: 0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: var(--space-2);
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tab.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+
+        .tab:hover {
+            background: var(--bg-light);
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        /* ── Streak Header ── */
+        .streak-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-2) var(--space-3);
+            background: var(--streak-orange-light);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-2);
+        }
+
+        .streak-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .streak-flame {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .streak-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .streak-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .streak-right {
+            text-align: right;
+        }
+
+        .streak-progress-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .streak-progress-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* ── Progress Bar ── */
+        .progress-bar {
+            height: 6px;
+            background: var(--border-light);
+            border-radius: 3px;
+            margin-bottom: var(--space-3);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--streak-orange), var(--accent-green));
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+
+        /* ── Checklist ── */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: var(--space-3);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: 14px var(--space-2);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .checklist-item:hover {
+            border-color: var(--border-medium);
+            background: var(--bg-light);
+        }
+
+        .checklist-item.done {
+            border-color: var(--accent-green);
+            background: var(--accent-green-light);
+        }
+
+        .checklist-item.done .task-text {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+
+        .check-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--border-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            color: transparent;
+        }
+
+        .checklist-item.done .check-circle {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: white;
+        }
+
+        .task-text {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .task-co2 {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .checklist-footer {
+            text-align: center;
+            padding: var(--space-2);
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .checklist-footer strong {
+            color: var(--accent-green-dark);
+        }
+
+        /* ── Swap Button ── */
+        .swap-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            background: var(--surface-white);
+            color: var(--text-muted);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .swap-btn:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            background: #F0F7FF;
+        }
+
+        .checklist-item.done .swap-btn {
+            visibility: hidden;
+        }
+
+        /* ── Task Expand (quantity input) ── */
+        .task-expand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px var(--space-2) 10px 48px;
+            border: 2px solid var(--primary-blue);
+            border-top: none;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            background: #F0F7FF;
+            margin-top: -12px;
+            margin-bottom: 2px;
+        }
+
+        .task-expand input[type="number"] {
+            width: 70px;
+            padding: 6px 8px;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .task-expand input[type="number"]:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .task-expand .unit-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .task-expand .log-btn {
+            padding: 6px 14px;
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .task-expand .log-btn:hover {
+            background: var(--accent-green-dark);
+        }
+
+        .checklist-item.expanded {
+            border-color: var(--primary-blue);
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            background: #F0F7FF;
+        }
+
+        /* ── Logged feedback ── */
+        .task-logged-msg {
+            font-size: 13px;
+            color: var(--accent-green-dark);
+            font-weight: 600;
+            padding: 4px 0 0 48px;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Streak Shield ── */
+        .shield-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .shield-badge.used {
+            background: var(--border-medium);
+            color: var(--text-secondary);
+        }
+
+        /* ── Leaderboard ── */
+        .leaderboard-header {
+            text-align: center;
+            padding: var(--space-2) 0 var(--space-3);
+        }
+
+        .leaderboard-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .leaderboard-header p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .leaderboard-toggle {
+            display: flex;
+            gap: var(--space-1);
+            justify-content: center;
+            margin-bottom: var(--space-3);
+        }
+
+        .toggle-btn {
+            padding: 6px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            background: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .leaderboard-table {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .leaderboard-row {
+            display: grid;
+            grid-template-columns: 36px 1fr 70px 1fr;
+            align-items: center;
+            padding: 12px var(--space-2);
+            border-radius: var(--radius-md);
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .leaderboard-row:nth-child(odd) {
+            background: var(--bg-light);
+        }
+
+        .leaderboard-row.self {
+            background: var(--streak-orange-light);
+            border: 2px solid var(--streak-orange);
+            font-weight: 600;
+        }
+
+        .leaderboard-row.top-3 {
+            background: #F0F9FF;
+        }
+
+        .lb-rank {
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .leaderboard-row.top-3 .lb-rank {
+            color: var(--primary-blue);
+        }
+
+        .leaderboard-row.self .lb-rank {
+            color: var(--streak-orange);
+        }
+
+        .lb-name {
+            font-weight: 500;
+            color: var(--text-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .lb-streak {
+            font-weight: 600;
+            color: var(--streak-orange);
+            text-align: center;
+        }
+
+        .lb-saved {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        .leaderboard-col-headers {
+            display: grid;
+            grid-template-columns: 36px 1fr 70px 1fr;
+            padding: 0 var(--space-2) 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            gap: 8px;
+        }
+
+        .leaderboard-col-headers span:nth-child(3) {
+            text-align: center;
+        }
+
+        .leaderboard-col-headers span:nth-child(4) {
+            text-align: right;
+        }
+
+        .leaderboard-divider {
+            text-align: center;
+            padding: 4px 0;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* ── Chat ── */
+        .messages {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 80px;
+        }
+
+        .message {
+            display: flex;
+            gap: 8px;
+            max-width: 85%;
+        }
+
+        .message.user {
+            margin-left: auto;
+            flex-direction: row-reverse;
+        }
+
+        .message-bubble {
+            padding: 12px var(--space-2);
+            border-radius: 18px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .message.assistant .message-bubble {
+            background: var(--surface-white);
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        .message.user .message-bubble {
+            background: var(--primary-blue);
+            color: var(--surface-white);
+            border-radius: 18px 18px 4px 18px;
+        }
+
+        .input-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface-white);
+            padding: var(--space-2);
+            border-top: 2px solid var(--border-light);
+            display: flex;
+            gap: var(--space-1);
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-container input {
+            flex: 1;
+            padding: 12px var(--space-2);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-container input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-container button {
+            padding: 12px var(--space-3);
+            background: var(--primary-blue);
+            color: var(--surface-white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .input-container button:hover:not(:disabled) {
+            background: var(--primary-blue-dark);
+        }
+
+        .input-container button:disabled {
+            background: var(--border-medium);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .chat-hint {
+            text-align: center;
+            padding: var(--space-3) var(--space-2);
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .chat-hint strong {
+            color: var(--text-secondary);
+        }
+
+        /* System message (confirmation after logging) */
+        .message.system {
+            margin: 0 auto;
+        }
+
+        .message.system .message-bubble {
+            background: var(--accent-green-light);
+            color: var(--accent-green-dark);
+            border: 1px solid var(--accent-green);
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            padding: 8px 16px;
+        }
+
+        /* ── Weekly Summary ── */
+        .weekly-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 20px;
+        }
+
+        .weekly-card {
+            background: var(--surface-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            max-width: 400px;
+            width: 100%;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .weekly-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            color: var(--text-primary);
+        }
+
+        .weekly-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .weekly-stat:last-of-type {
+            border-bottom: none;
+        }
+
+        .weekly-stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: left;
+        }
+
+        .weekly-stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .weekly-highlight {
+            background: var(--accent-green-light);
+            border-radius: var(--radius-md);
+            padding: var(--space-2);
+            margin: var(--space-3) 0;
+            font-size: 15px;
+            color: var(--accent-green-dark);
+            font-weight: 500;
+        }
+
+        .weekly-community {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: var(--space-2) 0 var(--space-3);
+            line-height: 1.5;
+        }
+
+        .weekly-community strong {
+            color: var(--text-primary);
+        }
+
+        /* ── Survey (kept from V0) ── */
+        .survey-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            padding: var(--space-4);
+        }
+
+        .survey-card {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .survey-card h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .survey-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .survey-input {
+            width: 100%;
+            padding: 12px var(--space-2);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            margin-bottom: var(--space-2);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .survey-input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .tile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-2);
+            margin: var(--space-3) 0;
+        }
+
+        .tile-button {
+            padding: var(--space-3);
+            background: var(--surface-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .tile-button:hover {
+            border-color: var(--primary-blue-light);
+        }
+
+        .tile-button.selected {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: var(--surface-white);
+        }
+
+        .slider-container {
+            margin: var(--space-3) 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 10px;
+            border-radius: var(--radius-sm);
+            background: var(--border-light);
+            outline: none;
+            -webkit-appearance: none;
+            margin: var(--space-2) 0;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            cursor: pointer;
+            border: 2px solid var(--surface-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            margin: var(--space-3) 0;
+            text-align: left;
+        }
+
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            padding: var(--space-2);
+            background: var(--surface-white);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-item:hover {
+            border-color: var(--primary-blue-light);
+            background: var(--bg-light);
+        }
+
+        .toggle-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: var(--space-2);
+            cursor: pointer;
+        }
+
+        .toggle-item label {
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-2);
+            margin: var(--space-3) 0;
+        }
+
+        .breakdown-tile {
+            padding: var(--space-2);
+            background: var(--surface-white);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .breakdown-tile::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-blue);
+        }
+
+        .breakdown-tile.transport::before {
+            background: var(--primary-blue);
+        }
+
+        .breakdown-tile.food::before {
+            background: var(--accent-green);
+        }
+
+        .breakdown-tile.energy::before {
+            background: var(--primary-blue-dark);
+        }
+
+        .breakdown-tile.lifestyle::before {
+            background: var(--primary-blue-light);
+        }
+
+        .breakdown-tile .percentage {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .breakdown-tile .category {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .survey-nav {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-3);
+            justify-content: space-between;
+        }
+
+        .survey-nav.single {
+            justify-content: flex-end;
+        }
+
+        .welcome-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .welcome-screen h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+            line-height: 1.2;
+        }
+
+        .welcome-screen p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .welcome-screen button {
+            padding: var(--space-2) var(--space-4);
+            background: var(--primary-blue);
+            color: var(--surface-white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-screen button:hover {
+            background: var(--primary-blue-dark);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+
+        .view-weekly-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: none;
+            border: 1px dashed var(--border-medium);
+            border-radius: var(--radius-md);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: var(--space-1);
+        }
+
+        .view-weekly-btn:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            background: #F0F7FF;
+        }
+
+        /* ── Milestone badges ── */
+        .milestone-badge {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 10px;
+            line-height: 18px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        .milestone-7 {
+            background: #60A5FA;
+        }
+
+        .milestone-30 {
+            background: #F59E0B;
+        }
+
+        .milestone-100 {
+            background: #EF4444;
+        }
+
+        @media (max-width: 600px) {
+            .app {
+                max-width: 100%;
+            }
+
+            .input-container {
+                max-width: 100%;
+            }
+
+            .tile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .survey-card h2 {
+                font-size: 28px;
+            }
+
+            .welcome-screen h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        const API_URL = 'http://localhost:8000';
+
+        // ─── Task Pool ───
+        // co2PerUnit = savings per 1 unit of this action
+        // co2 = co2PerUnit * defaultQty (the default shown before user adjusts)
+        const TASK_POOL = {
+            transport: [
+                { id: 't1', text: 'Take transit instead of driving', co2PerUnit: 0.12, defaultQty: 20, unit: 'km', co2: 2.4 },
+                { id: 't2', text: 'Carpool with someone today', co2PerUnit: 0.105, defaultQty: 20, unit: 'km', co2: 2.1 },
+                { id: 't3', text: 'Bike or walk for a trip', co2PerUnit: 0.21, defaultQty: 20, unit: 'km', co2: 4.2 },
+                { id: 't4', text: 'Skip one car trip today', co2PerUnit: 0.21, defaultQty: 10, unit: 'km saved', co2: 2.1 },
+                { id: 't5', text: 'Take the bus to campus', co2PerUnit: 0.12, defaultQty: 20, unit: 'km', co2: 2.4 },
+            ],
+            food: [
+                { id: 'f1', text: 'Swap a meal to vegetarian', co2PerUnit: 2.0, defaultQty: 1, unit: 'meals', co2: 2.0 },
+                { id: 'f2', text: 'Try a fully plant-based meal', co2PerUnit: 2.6, defaultQty: 1, unit: 'meals', co2: 2.6 },
+                { id: 'f3', text: 'Buy local produce for a meal', co2PerUnit: 0.3, defaultQty: 1, unit: 'meals', co2: 0.3 },
+                { id: 'f4', text: 'Skip the beef today', co2PerUnit: 3.7, defaultQty: 1, unit: 'meals', co2: 3.7 },
+                { id: 'f5', text: 'No food waste today', co2PerUnit: 0.9, defaultQty: 1, unit: 'days', co2: 0.9 },
+            ],
+            energy: [
+                { id: 'e1', text: 'Turn off AC', co2PerUnit: 0.46, defaultQty: 2, unit: 'hours', co2: 0.92 },
+                { id: 'e2', text: 'Do a cold water wash', co2PerUnit: 0.6, defaultQty: 1, unit: 'loads', co2: 0.6 },
+                { id: 'e3', text: 'Line dry your clothes', co2PerUnit: 2.5, defaultQty: 1, unit: 'loads', co2: 2.5 },
+                { id: 'e4', text: 'Turn off lights when leaving', co2PerUnit: 0.004, defaultQty: 5, unit: 'hours', co2: 0.02 },
+                { id: 'e5', text: 'Skip heating', co2PerUnit: 0.52, defaultQty: 1, unit: 'hours', co2: 0.52 },
+            ],
+            lifestyle: [
+                { id: 'l1', text: 'Carry your reusable bottle', co2PerUnit: 0.08, defaultQty: 1, unit: 'uses', co2: 0.08 },
+                { id: 'l2', text: 'Use a reusable bag', co2PerUnit: 0.03, defaultQty: 1, unit: 'uses', co2: 0.03 },
+                { id: 'l3', text: 'Cook at home vs ordering out', co2PerUnit: 0.5, defaultQty: 1, unit: 'meals', co2: 0.5 },
+                { id: 'l4', text: 'Avoid single-use plastics', co2PerUnit: 0.1, defaultQty: 1, unit: 'uses', co2: 0.1 },
+                { id: 'l5', text: 'Take the stairs', co2PerUnit: 0.005, defaultQty: 3, unit: 'floors', co2: 0.015 },
+            ]
+        };
+
+        // ─── Mock Leaderboard ───
+        const MOCK_LEADERBOARD = [
+            { name: 'Priya S.', streak: 34, co2Saved: 89.4, city: 'Pittsburgh' },
+            { name: 'Marcus W.', streak: 28, co2Saved: 72.1, city: 'Pittsburgh' },
+            { name: 'Sarah K.', streak: 21, co2Saved: 54.3, city: 'Boston' },
+            { name: 'James L.', streak: 19, co2Saved: 48.7, city: 'Pittsburgh' },
+            { name: 'Aisha M.', streak: 17, co2Saved: 41.2, city: 'New York' },
+            { name: 'Carlos R.', streak: 15, co2Saved: 38.9, city: 'Pittsburgh' },
+            { name: 'Emily T.', streak: 14, co2Saved: 35.1, city: 'Chicago' },
+            { name: 'Raj P.', streak: 12, co2Saved: 30.5, city: 'Pittsburgh' },
+            { name: 'Olivia N.', streak: 11, co2Saved: 27.8, city: 'San Francisco' },
+            { name: 'Mike D.', streak: 9, co2Saved: 22.3, city: 'Pittsburgh' },
+            { name: 'Luna C.', streak: 8, co2Saved: 19.7, city: 'Boston' },
+            { name: 'Noah B.', streak: 7, co2Saved: 16.4, city: 'Pittsburgh' },
+            { name: 'Zara F.', streak: 5, co2Saved: 11.2, city: 'New York' },
+            { name: 'Tyler G.', streak: 4, co2Saved: 8.5, city: 'Pittsburgh' },
+            { name: 'Mia H.', streak: 3, co2Saved: 5.9, city: 'Chicago' },
+            { name: 'Ethan J.', streak: 2, co2Saved: 3.1, city: 'Pittsburgh' },
+        ];
+
+        // ─── Utility Functions ───
+        function getTodayStr() {
+            return new Date().toISOString().slice(0, 10);
+        }
+
+        function getDayOfYear() {
+            const now = new Date();
+            const start = new Date(now.getFullYear(), 0, 0);
+            const diff = now - start;
+            return Math.floor(diff / (1000 * 60 * 60 * 24));
+        }
+
+        function getEquivalency(kgCo2) {
+            if (kgCo2 < 1) return `charging your phone ${Math.round(kgCo2 * 122)} times`;
+            if (kgCo2 < 5) return `driving ${(kgCo2 * 4.76).toFixed(0)} km in a car`;
+            if (kgCo2 < 20) return `powering your home for ${(kgCo2 / 20).toFixed(1)} days`;
+            if (kgCo2 < 100) return `${(kgCo2 / 50).toFixed(1)} round-trip flights PIT-NYC`;
+            return `${(kgCo2 / 250).toFixed(1)} weeks of avg. emissions`;
+        }
+
+        function getTaskCategory(taskId) {
+            for (const [category, tasks] of Object.entries(TASK_POOL)) {
+                if (tasks.some(t => t.id === taskId)) return category;
+            }
+            return null;
+        }
+
+        function pickTasks(pool, count, seed) {
+            const shuffled = [...pool].sort((a, b) => {
+                const ha = ((seed * 31 + a.id.charCodeAt(1)) % 97);
+                const hb = ((seed * 31 + b.id.charCodeAt(1)) % 97);
+                return ha - hb;
+            });
+            return shuffled.slice(0, count);
+        }
+
+        function generateDailyTasks(profile) {
+            const day = getDayOfYear();
+            const mode = profile?.commuteMode || 'car';
+            const food = profile?.foodVibe || 'meat';
+            const isGreen = (mode === 'bike' || mode === 'remote') && (food === 'veggie' || food === 'vegan');
+
+            let counts;
+            if (isGreen) {
+                counts = { transport: 1, food: 1, energy: 1, lifestyle: 2 };
+            } else if (mode === 'car') {
+                counts = { transport: 2, food: 1, energy: 1, lifestyle: 1 };
+            } else if (food === 'meat') {
+                counts = { transport: 1, food: 2, energy: 1, lifestyle: 1 };
+            } else {
+                counts = { transport: 1, food: 1, energy: 1, lifestyle: 2 };
+            }
+
+            const tasks = [];
+            for (const [category, count] of Object.entries(counts)) {
+                tasks.push(...pickTasks(TASK_POOL[category], count, day));
+            }
+            return tasks;
+        }
+
+        // ─── Streak Logic ───
+        function loadStreakData() {
+            try {
+                const raw = localStorage.getItem('carbonbuddy_streak');
+                if (raw) return JSON.parse(raw);
+            } catch (e) { }
+            return { currentStreak: 0, lastDate: null, shieldAvailable: false, shieldUsedThisWeek: false };
+        }
+
+        function saveStreakData(data) {
+            localStorage.setItem('carbonbuddy_streak', JSON.stringify(data));
+        }
+
+        function loadTodayCompleted() {
+            try {
+                const raw = localStorage.getItem('carbonbuddy_today');
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed.date === getTodayStr()) return parsed.completed;
+                }
+            } catch (e) { }
+            return [];
+        }
+
+        function saveTodayCompleted(completed) {
+            localStorage.setItem('carbonbuddy_today', JSON.stringify({
+                date: getTodayStr(),
+                completed: completed
+            }));
+        }
+
+        function loadWeeklyStats() {
+            try {
+                const raw = localStorage.getItem('carbonbuddy_weekly');
+                if (raw) return JSON.parse(raw);
+            } catch (e) { }
+            return { tasksCompleted: 0, totalTasks: 0, co2Saved: 0 };
+        }
+
+        function saveWeeklyStats(stats) {
+            localStorage.setItem('carbonbuddy_weekly', JSON.stringify(stats));
+        }
+
+        function getMilestoneBadge(streak) {
+            if (streak >= 100) return { className: 'milestone-100', label: 'C' };
+            if (streak >= 30) return { className: 'milestone-30', label: '30' };
+            if (streak >= 7) return { className: 'milestone-7', label: '7' };
+            return null;
+        }
+
+        // ─── Onboarding Survey Component (kept from V0) ───
+        function OnboardingSurvey({ userId, onComplete }) {
+            const [step, setStep] = useState(0);
+            const [surveyData, setSurveyData] = useState({
+                city: '', country: '', commuteMode: '', commuteDistance: 10,
+                foodVibe: '', hasAC: false, hasHeating: false
+            });
+            const [baseline, setBaseline] = useState(null);
+            const [loading, setLoading] = useState(false);
+            const [weeklyGoal, setWeeklyGoal] = useState(15);
+
+            const updateSurveyData = (field, value) => {
+                setSurveyData(prev => ({ ...prev, [field]: value }));
+            };
+            const handleNext = () => setStep(prev => prev + 1);
+            const handleBack = () => setStep(prev => prev - 1);
+
+            const handleCalculateBaseline = async () => {
+                setLoading(true);
+                try {
+                    const response = await fetch(`${API_URL}/api/onboard-quick`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ user_id: userId, ...surveyData })
+                    });
+                    const data = await response.json();
+                    setBaseline(data.baseline);
+                    setWeeklyGoal(Math.round(data.baseline.annual / 52 * 0.1));
+                    setStep(6);
+                } catch (error) {
+                    console.error('Error calculating baseline:', error);
+                    const estimatedAnnual = calculateEstimatedBaseline();
+                    setBaseline({
+                        annual: estimatedAnnual,
+                        weekly: Math.round(estimatedAnnual / 52),
+                        breakdown: { transport: 45, food: 30, energy: 20, other: 5 }
+                    });
+                    setWeeklyGoal(Math.round(estimatedAnnual / 52 * 0.1));
+                    setStep(6);
+                } finally { setLoading(false); }
+            };
+
+            const calculateEstimatedBaseline = () => {
+                let annual = 3000;
+                if (surveyData.commuteMode === 'car') annual += surveyData.commuteDistance * 250 * 0.2;
+                else if (surveyData.commuteMode === 'transit') annual += surveyData.commuteDistance * 250 * 0.05;
+                if (surveyData.foodVibe === 'meat') annual += 2500;
+                else if (surveyData.foodVibe === 'flex') annual += 1800;
+                else if (surveyData.foodVibe === 'veggie') annual += 1200;
+                else if (surveyData.foodVibe === 'vegan') annual += 800;
+                if (surveyData.hasAC) annual += 500;
+                if (surveyData.hasHeating) annual += 1000;
+                return Math.round(annual);
+            };
+
+            const handleFinish = () => onComplete(surveyData, baseline, weeklyGoal);
+
+            if (step === 0) {
+                return (
+                    <div className="survey-container">
+                        <div className="survey-card">
+                            <h2>Let's speedrun your carbon baseline</h2>
+                            <p>5 quick questions. No judgment. Just data.</p>
+                            <button className="btn-bold" onClick={handleNext}>Start Survey</button>
+                        </div>
+                    </div>
+                );
+            }
+            if (step === 1) {
+                return (
+                    <div className="survey-container"><div className="survey-card">
+                        <h2>Where are you?</h2>
+                        <p>This helps us understand your regional context</p>
+                        <input className="survey-input" type="text" placeholder="City" value={surveyData.city}
+                            onChange={(e) => updateSurveyData('city', e.target.value)} />
+                        <input className="survey-input" type="text" placeholder="Country" value={surveyData.country}
+                            onChange={(e) => updateSurveyData('country', e.target.value)} />
+                        <div className="survey-nav">
+                            <button className="btn-bold secondary" onClick={handleBack}>Back</button>
+                            <button className="btn-bold" onClick={handleNext}
+                                disabled={!surveyData.city || !surveyData.country}>Next</button>
+                        </div>
+                    </div></div>
+                );
+            }
+            if (step === 2) {
+                return (
+                    <div className="survey-container"><div className="survey-card">
+                        <h2>Your commute?</h2>
+                        <p>How do you usually get around?</p>
+                        <div className="tile-grid">
+                            {[['car', 'Car (solo)'], ['transit', 'Public transit'], ['bike', 'Bike/Walk'], ['remote', 'Remote work']].map(([val, label]) => (
+                                <button key={val} className={`tile-button ${surveyData.commuteMode === val ? 'selected' : ''}`}
+                                    onClick={() => updateSurveyData('commuteMode', val)}>{label}</button>
+                            ))}
+                        </div>
+                        {surveyData.commuteMode && surveyData.commuteMode !== 'remote' && (
+                            <div className="slider-container">
+                                <p>Distance: {surveyData.commuteDistance} km/day</p>
+                                <input type="range" min="1" max="100" value={surveyData.commuteDistance}
+                                    onChange={(e) => updateSurveyData('commuteDistance', parseInt(e.target.value))} className="slider" />
+                            </div>
+                        )}
+                        <div className="survey-nav">
+                            <button className="btn-bold secondary" onClick={handleBack}>Back</button>
+                            <button className="btn-bold" onClick={handleNext} disabled={!surveyData.commuteMode}>Next</button>
+                        </div>
+                    </div></div>
+                );
+            }
+            if (step === 3) {
+                return (
+                    <div className="survey-container"><div className="survey-card">
+                        <h2>Your food vibe?</h2>
+                        <p>What's your typical diet like?</p>
+                        <div className="tile-grid">
+                            {[['meat', 'Meat lover'], ['flex', 'Flexitarian'], ['veggie', 'Vegetarian'], ['vegan', 'Vegan']].map(([val, label]) => (
+                                <button key={val} className={`tile-button ${surveyData.foodVibe === val ? 'selected' : ''}`}
+                                    onClick={() => updateSurveyData('foodVibe', val)}>{label}</button>
+                            ))}
+                        </div>
+                        <div className="survey-nav">
+                            <button className="btn-bold secondary" onClick={handleBack}>Back</button>
+                            <button className="btn-bold" onClick={handleNext} disabled={!surveyData.foodVibe}>Next</button>
+                        </div>
+                    </div></div>
+                );
+            }
+            if (step === 4) {
+                return (
+                    <div className="survey-container"><div className="survey-card">
+                        <h2>Temperature control?</h2>
+                        <p>What do you use at home?</p>
+                        <div className="toggle-group">
+                            <div className="toggle-item">
+                                <input type="checkbox" id="ac" checked={surveyData.hasAC}
+                                    onChange={(e) => updateSurveyData('hasAC', e.target.checked)} />
+                                <label htmlFor="ac">AC in summer</label>
+                            </div>
+                            <div className="toggle-item">
+                                <input type="checkbox" id="heating" checked={surveyData.hasHeating}
+                                    onChange={(e) => updateSurveyData('hasHeating', e.target.checked)} />
+                                <label htmlFor="heating">Heating in winter</label>
+                            </div>
+                        </div>
+                        <div className="survey-nav">
+                            <button className="btn-bold secondary" onClick={handleBack}>Back</button>
+                            <button className="btn-bold" onClick={handleNext}>Next</button>
+                        </div>
+                    </div></div>
+                );
+            }
+            if (step === 5) {
+                return (
+                    <div className="survey-container"><div className="survey-card">
+                        <h2>Almost there!</h2>
+                        <p>Ready to calculate your baseline</p>
+                        <div className="survey-nav">
+                            <button className="btn-bold secondary" onClick={handleBack}>Back</button>
+                            <button className="btn-bold" onClick={handleCalculateBaseline} disabled={loading}>
+                                {loading ? 'Calculating...' : 'Finish & Calculate'}
+                            </button>
+                        </div>
+                    </div></div>
+                );
+            }
+            if (step === 6 && baseline) {
+                return (
+                    <div className="survey-container"><div className="survey-card">
+                        <h2>{baseline.annual.toLocaleString()} kg CO2/year</h2>
+                        <p>That's ~{baseline.weekly} kg/week</p>
+                        <div className="breakdown-grid">
+                            <div className="breakdown-tile transport">
+                                <div className="percentage">{baseline.breakdown.transport}%</div>
+                                <div className="category">Transport</div>
+                            </div>
+                            <div className="breakdown-tile food">
+                                <div className="percentage">{baseline.breakdown.food}%</div>
+                                <div className="category">Food</div>
+                            </div>
+                            <div className="breakdown-tile energy">
+                                <div className="percentage">{baseline.breakdown.energy}%</div>
+                                <div className="category">Energy</div>
+                            </div>
+                            <div className="breakdown-tile lifestyle">
+                                <div className="percentage">{baseline.breakdown.other}%</div>
+                                <div className="category">Other</div>
+                            </div>
+                        </div>
+                        <p style={{ color: 'var(--text-secondary)', marginTop: 'var(--space-3)' }}>
+                            Not great, not terrible. Let's improve it.
+                        </p>
+                        <div className="survey-nav single" style={{ marginTop: 'var(--space-3)' }}>
+                            <button className="btn-bold" onClick={handleNext}>Set My Weekly Goal</button>
+                        </div>
+                    </div></div>
+                );
+            }
+            if (step === 7 && baseline) {
+                const reduction = Math.round((weeklyGoal / baseline.weekly) * 100);
+                return (
+                    <div className="survey-container"><div className="survey-card">
+                        <h2>Save {weeklyGoal} kg CO2 this week</h2>
+                        <p>That's {reduction}% of your weekly footprint</p>
+                        <div className="slider-container">
+                            <input type="range" min={Math.round(baseline.weekly * 0.05)}
+                                max={Math.round(baseline.weekly * 0.25)} value={weeklyGoal}
+                                onChange={(e) => setWeeklyGoal(parseInt(e.target.value))} className="slider" />
+                            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginTop: 'var(--space-2)' }}>
+                                Adjust your goal (5-25% reduction)
+                            </p>
+                        </div>
+                        <div className="survey-nav" style={{ marginTop: 'var(--space-4)' }}>
+                            <button className="btn-bold secondary" onClick={handleBack}>Back</button>
+                            <button className="btn-bold" onClick={handleFinish}>Let's Go</button>
+                        </div>
+                    </div></div>
+                );
+            }
+            return <div className="loading">Loading...</div>;
+        }
+
+        // ─── Today Tab ───
+        function TodayTab({ profile, streak, tasks, completedTasks, loggedData, onLogTask, onUndoTask, onSwapTask, onShowWeekly }) {
+            const [expandedId, setExpandedId] = useState(null);
+            const [qty, setQty] = useState(0);
+            const [justLogged, setJustLogged] = useState(null); // { id, co2 } for feedback
+
+            const completedCount = completedTasks.length;
+            const totalTasks = tasks.length;
+            const savedCo2 = Object.values(loggedData).reduce((sum, d) => sum + d.co2, 0);
+
+            function getProgressMessage() {
+                if (completedCount === 0) return 'Pick any task that fits your day';
+                if (completedCount === 1) return 'Great start! Every action counts';
+                if (completedCount === 2) return 'Nice momentum! Keep it up';
+                if (completedCount >= 3) return 'Streak secured! You\'re on a roll';
+                return '';
+            }
+
+            const handleTaskClick = (task) => {
+                if (completedTasks.includes(task.id)) {
+                    // Already done — undo it
+                    onUndoTask(task.id);
+                    return;
+                }
+                if (expandedId === task.id) {
+                    setExpandedId(null);
+                    return;
+                }
+                setExpandedId(task.id);
+                setQty(task.defaultQty);
+            };
+
+            const handleLog = (task) => {
+                const actualCo2 = Math.round(task.co2PerUnit * qty * 100) / 100;
+                onLogTask(task.id, qty, actualCo2);
+                setExpandedId(null);
+                setJustLogged({ id: task.id, co2: actualCo2 });
+                setTimeout(() => setJustLogged(null), 2500);
+            };
+
+            return (
+                <div>
+                    {/* Streak Header */}
+                    <div className="streak-header">
+                        <div className="streak-left">
+                            <span className="streak-flame" role="img" aria-label="streak">
+                                {streak.currentStreak > 0 ? '\uD83D\uDD25' : '\u26AA'}
+                            </span>
+                            <div>
+                                <div className="streak-number">Day {streak.currentStreak}</div>
+                                <div className="streak-label">
+                                    {streak.currentStreak >= 7 && !streak.shieldUsedThisWeek && (
+                                        <span className="shield-badge">Shield ready</span>
+                                    )}
+                                    {streak.shieldUsedThisWeek && (
+                                        <span className="shield-badge used">Shield used</span>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="streak-right">
+                            <div className="streak-progress-text">{completedCount}/{totalTasks}</div>
+                            <div className="streak-progress-label">
+                                {getProgressMessage()}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Progress bar */}
+                    <div className="progress-bar">
+                        <div className="progress-fill" style={{ width: `${(completedCount / totalTasks) * 100}%` }} />
+                    </div>
+
+                    {/* Checklist */}
+                    <div className="checklist">
+                        {tasks.map(task => {
+                            const isDone = completedTasks.includes(task.id);
+                            const isExpanded = expandedId === task.id && !isDone;
+                            const logged = loggedData[task.id];
+                            const displayCo2 = logged ? logged.co2 : task.co2;
+                            const wasJustLogged = justLogged && justLogged.id === task.id;
+
+                            return (
+                                <React.Fragment key={task.id}>
+                                    <div className={`checklist-item ${isDone ? 'done' : ''} ${isExpanded ? 'expanded' : ''}`}>
+                                        <div className="check-circle"
+                                            onClick={() => handleTaskClick(task)}>
+                                            {isDone ? '\u2713' : ''}
+                                        </div>
+                                        <span className="task-text"
+                                            onClick={() => handleTaskClick(task)}>
+                                            {task.text}
+                                            {logged && <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>
+                                                {' '}&middot; {logged.qty} {task.unit}
+                                            </span>}
+                                        </span>
+                                        <span className="task-co2">{displayCo2.toFixed(1)} kg</span>
+                                        <button className="swap-btn" title="Swap for a different task"
+                                            onClick={(e) => { e.stopPropagation(); onSwapTask(task.id); }}>
+                                            &#x21C4;
+                                        </button>
+                                    </div>
+                                    {isExpanded && (
+                                        <div className="task-expand">
+                                            <input type="number" min="1" max="999" value={qty}
+                                                onChange={(e) => setQty(Math.max(1, parseInt(e.target.value) || 1))}
+                                                autoFocus />
+                                            <span className="unit-label">
+                                                {task.unit} = {(task.co2PerUnit * qty).toFixed(1)} kg saved
+                                            </span>
+                                            <button className="log-btn" onClick={() => handleLog(task)}>
+                                                Log it
+                                            </button>
+                                        </div>
+                                    )}
+                                    {wasJustLogged && (
+                                        <div className="task-logged-msg">
+                                            Logged! Saved {getEquivalency(justLogged.co2)}
+                                        </div>
+                                    )}
+                                </React.Fragment>
+                            );
+                        })}
+                    </div>
+
+                    {/* Footer */}
+                    <div className="checklist-footer">
+                        {completedCount === 0 ? (
+                            <span>Do what fits your day. Even 1 task makes a difference.</span>
+                        ) : (
+                            <span>You saved <strong>{getEquivalency(savedCo2)}</strong> today</span>
+                        )}
+                    </div>
+
+                    {/* Weekly summary link */}
+                    <button className="view-weekly-btn" onClick={onShowWeekly}>
+                        View your weekly summary
+                    </button>
+                </div>
+            );
+        }
+
+        // ─── Ranks Tab ───
+        function RanksTab({ userProfile, userStreak, weeklyStats, todayCo2 }) {
+            const [filter, setFilter] = useState('global');
+            const userCity = userProfile?.city || 'Pittsburgh';
+
+            // Use actual CO2 data: weekly accumulated + today's logged total
+            const actualCo2 = weeklyStats.co2Saved || 0;
+
+            // Build full leaderboard with user inserted
+            const userEntry = {
+                name: 'You',
+                streak: userStreak.currentStreak,
+                co2Saved: actualCo2,
+                city: userCity,
+                isSelf: true
+            };
+
+            let board = [...MOCK_LEADERBOARD.map(u => ({ ...u, isSelf: false })), userEntry];
+
+            if (filter === 'city') {
+                board = board.filter(u => u.city.toLowerCase() === userCity.toLowerCase());
+            }
+
+            // Sort by streak descending
+            board.sort((a, b) => b.streak - a.streak);
+
+            // Assign ranks
+            board = board.map((u, i) => ({ ...u, rank: i + 1 }));
+
+            // If user is beyond top 10, show top 8 + divider + user context
+            const userRank = board.findIndex(u => u.isSelf);
+            let displayBoard;
+            let showDivider = false;
+
+            if (userRank > 9) {
+                displayBoard = [
+                    ...board.slice(0, 8),
+                    ...board.slice(Math.max(8, userRank - 1), userRank + 2)
+                ];
+                showDivider = true;
+            } else {
+                displayBoard = board.slice(0, Math.max(12, userRank + 3));
+            }
+
+            const totalUsers = 847;
+
+            return (
+                <div>
+                    <div className="leaderboard-header">
+                        <h2>{totalUsers} people saving together</h2>
+                        <p>Ranked by streak length</p>
+                    </div>
+
+                    <div className="leaderboard-toggle">
+                        <button className={`toggle-btn ${filter === 'global' ? 'active' : ''}`}
+                            onClick={() => setFilter('global')}>Global</button>
+                        <button className={`toggle-btn ${filter === 'city' ? 'active' : ''}`}
+                            onClick={() => setFilter('city')}>{userCity}</button>
+                    </div>
+
+                    <div className="leaderboard-col-headers">
+                        <span>#</span>
+                        <span>Name</span>
+                        <span>Streak</span>
+                        <span>Saved</span>
+                    </div>
+
+                    <div className="leaderboard-table">
+                        {displayBoard.map((user, idx) => {
+                            const isTop3 = user.rank <= 3;
+                            const badge = getMilestoneBadge(user.streak);
+                            const prevUser = displayBoard[idx - 1];
+                            const needsDivider = prevUser && (user.rank - prevUser.rank > 1);
+
+                            return (
+                                <React.Fragment key={user.rank + user.name}>
+                                    {needsDivider && (
+                                        <div className="leaderboard-divider">...</div>
+                                    )}
+                                    <div className={`leaderboard-row ${user.isSelf ? 'self' : ''} ${isTop3 ? 'top-3' : ''}`}>
+                                        <span className="lb-rank">{user.rank}</span>
+                                        <span className="lb-name">
+                                            {user.name}
+                                            {badge && <span className={`milestone-badge ${badge.className}`}>{badge.label}</span>}
+                                        </span>
+                                        <span className="lb-streak">{user.streak}d</span>
+                                        <span className="lb-saved">{getEquivalency(user.co2Saved)}</span>
+                                    </div>
+                                </React.Fragment>
+                            );
+                        })}
+                    </div>
+                </div>
+            );
+        }
+
+        // ─── Weekly Summary ───
+        function WeeklySummary({ streak, weeklyStats, profile, onClose }) {
+            const totalUsers = 847;
+            const communityWeekly = 1247.3;
+            const userWeekly = weeklyStats.co2Saved;
+            const contribution = totalUsers > 0 ? ((userWeekly / communityWeekly) * 100).toFixed(1) : '0.0';
+
+            return (
+                <div className="weekly-overlay" onClick={onClose}>
+                    <div className="weekly-card" onClick={(e) => e.stopPropagation()}>
+                        <h2>This Week</h2>
+
+                        <div className="weekly-stat">
+                            <span className="weekly-stat-label">Streak</span>
+                            <span className="weekly-stat-value">{streak.currentStreak} days</span>
+                        </div>
+                        <div className="weekly-stat">
+                            <span className="weekly-stat-label">Tasks completed</span>
+                            <span className="weekly-stat-value">{weeklyStats.tasksCompleted} / {weeklyStats.totalTasks}</span>
+                        </div>
+
+                        <div className="weekly-highlight">
+                            You avoided the equivalent of {getEquivalency(userWeekly)}
+                        </div>
+
+                        <div className="weekly-community">
+                            Together, <strong>{totalUsers} people</strong> erased the equivalent
+                            of <strong>{getEquivalency(communityWeekly)}</strong> this week.
+                            <br />You contributed <strong>{contribution}%</strong> of that.
+                        </div>
+
+                        <button className="btn-bold" onClick={onClose} style={{ width: '100%' }}>
+                            Keep going
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        // ─── Main App ───
+        function App() {
+            const [activeTab, setActiveTab] = useState('today');
+            const [userId, setUserId] = useState(null);
+            const [onboardingComplete, setOnboardingComplete] = useState(false);
+            const [showSurvey, setShowSurvey] = useState(true);
+            const [userProfile, setUserProfile] = useState(null);
+
+            // Today tab state
+            const [dailyTasks, setDailyTasks] = useState([]);
+            const [completedTasks, setCompletedTasks] = useState([]);
+            const [loggedData, setLoggedData] = useState({}); // { taskId: { qty, co2 } }
+            const [streak, setStreak] = useState(loadStreakData());
+            const [weeklyStats, setWeeklyStats] = useState(loadWeeklyStats());
+            const [showWeekly, setShowWeekly] = useState(false);
+
+            // Chat state
+            const [messages, setMessages] = useState([]);
+            const [input, setInput] = useState('');
+            const [chatLoading, setChatLoading] = useState(false);
+            const messagesEndRef = useRef(null);
+
+            // Initialize
+            useEffect(() => {
+                let id = localStorage.getItem('carbonbuddy_user_id');
+                if (!id) {
+                    id = 'user_' + Math.random().toString(36).substr(2, 9);
+                    localStorage.setItem('carbonbuddy_user_id', id);
+                }
+                setUserId(id);
+
+                const onboardingDone = localStorage.getItem('carbonbuddy_onboarding_complete');
+                if (onboardingDone === 'true') {
+                    setShowSurvey(false);
+                    setOnboardingComplete(true);
+
+                    try {
+                        const profile = JSON.parse(localStorage.getItem('carbonbuddy_user_profile'));
+                        setUserProfile(profile);
+                        const tasks = generateDailyTasks(profile);
+                        setDailyTasks(tasks);
+                    } catch (e) {
+                        const tasks = generateDailyTasks(null);
+                        setDailyTasks(tasks);
+                    }
+
+                    const completed = loadTodayCompleted();
+                    setCompletedTasks(completed);
+
+                    // Load logged quantities
+                    try {
+                        const rawLogged = localStorage.getItem('carbonbuddy_logged');
+                        if (rawLogged) {
+                            const parsed = JSON.parse(rawLogged);
+                            if (parsed.date === getTodayStr()) setLoggedData(parsed.data);
+                        }
+                    } catch (e) { }
+
+                    // Check streak continuity
+                    const streakData = loadStreakData();
+                    const today = getTodayStr();
+                    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+
+                    if (streakData.lastDate && streakData.lastDate !== today && streakData.lastDate !== yesterday) {
+                        // Missed more than 1 day — check shield
+                        if (streakData.currentStreak >= 7 && !streakData.shieldUsedThisWeek) {
+                            streakData.shieldUsedThisWeek = true;
+                            // Shield saves the streak, don't reset
+                        } else {
+                            streakData.currentStreak = 0;
+                        }
+                        saveStreakData(streakData);
+                        setStreak(streakData);
+                    }
+                }
+            }, []);
+
+            // Auto-scroll chat
+            useEffect(() => {
+                messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }, [messages]);
+
+            const handleSurveyComplete = (surveyData, baseline, weeklyGoal) => {
+                const profile = {
+                    ...surveyData, baseline, weeklyGoal,
+                    weeklySaved: 0, streak: 0
+                };
+                setUserProfile(profile);
+                localStorage.setItem('carbonbuddy_user_profile', JSON.stringify(profile));
+                localStorage.setItem('carbonbuddy_onboarding_complete', 'true');
+
+                setShowSurvey(false);
+                setOnboardingComplete(true);
+                setActiveTab('today');
+
+                const tasks = generateDailyTasks(profile);
+                setDailyTasks(tasks);
+
+                // Initialize chat with welcome
+                setMessages([{
+                    role: 'assistant',
+                    content: `Welcome! Your daily plan is ready on the Today tab. You can chat here to customize your plan — tell me about your habits, schedule, or preferences and I'll adjust your tasks.`
+                }]);
+            };
+
+            const handleSwapTask = (taskId) => {
+                const category = getTaskCategory(taskId);
+                if (!category) return;
+                const currentIds = dailyTasks.map(t => t.id);
+                const available = TASK_POOL[category].filter(t => !currentIds.includes(t.id));
+                if (available.length === 0) return;
+                const replacement = available[Math.floor(Math.random() * available.length)];
+                const newTasks = dailyTasks.map(t => t.id === taskId ? replacement : t);
+                setDailyTasks(newTasks);
+                // Clean up if it was completed
+                if (completedTasks.includes(taskId)) {
+                    handleUndoTask(taskId);
+                }
+            };
+
+            const handleLogTask = (taskId, qty, co2) => {
+                // Mark as completed
+                const newCompleted = [...completedTasks, taskId];
+                setCompletedTasks(newCompleted);
+                saveTodayCompleted(newCompleted);
+
+                // Save logged quantity + co2
+                const newLogged = { ...loggedData, [taskId]: { qty, co2 } };
+                setLoggedData(newLogged);
+                localStorage.setItem('carbonbuddy_logged', JSON.stringify({
+                    date: getTodayStr(), data: newLogged
+                }));
+
+                // Update weekly stats
+                const newWeekly = { ...weeklyStats };
+                newWeekly.tasksCompleted += 1;
+                newWeekly.co2Saved += co2;
+                newWeekly.totalTasks = Math.max(newWeekly.totalTasks, dailyTasks.length);
+                setWeeklyStats(newWeekly);
+                saveWeeklyStats(newWeekly);
+
+                // Update streak if threshold met
+                if (newCompleted.length >= 3) {
+                    const today = getTodayStr();
+                    const streakData = loadStreakData();
+                    if (streakData.lastDate !== today) {
+                        streakData.currentStreak += 1;
+                        streakData.lastDate = today;
+                        if (streakData.currentStreak >= 7) {
+                            streakData.shieldAvailable = true;
+                        }
+                        if (streakData.currentStreak % 7 === 0) {
+                            streakData.shieldUsedThisWeek = false;
+                        }
+                        saveStreakData(streakData);
+                        setStreak(streakData);
+                    }
+                }
+            };
+
+            const handleUndoTask = (taskId) => {
+                const newCompleted = completedTasks.filter(id => id !== taskId);
+                setCompletedTasks(newCompleted);
+                saveTodayCompleted(newCompleted);
+
+                // Remove logged data and adjust weekly
+                const undone = loggedData[taskId];
+                if (undone) {
+                    const newLogged = { ...loggedData };
+                    delete newLogged[taskId];
+                    setLoggedData(newLogged);
+                    localStorage.setItem('carbonbuddy_logged', JSON.stringify({
+                        date: getTodayStr(), data: newLogged
+                    }));
+
+                    const newWeekly = { ...weeklyStats };
+                    newWeekly.tasksCompleted = Math.max(0, newWeekly.tasksCompleted - 1);
+                    newWeekly.co2Saved = Math.max(0, newWeekly.co2Saved - undone.co2);
+                    setWeeklyStats(newWeekly);
+                    saveWeeklyStats(newWeekly);
+                }
+            };
+
+            // Chat
+            const handleSend = async () => {
+                if (!input.trim() || chatLoading) return;
+                const userMessage = input.trim();
+                setInput('');
+                setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+                setChatLoading(true);
+
+                try {
+                    const response = await fetch(`${API_URL}/api/log`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ user_id: userId, message: userMessage })
+                    });
+                    const data = await response.json();
+
+                    // Check if user is customizing their plan
+                    const planKeywords = ['i work from home', 'i\'m vegan', 'i\'m vegetarian', 'i can\'t',
+                        'i don\'t', 'i hate', 'i prefer', 'change my', 'update my', 'modify', 'adjust',
+                        'on fridays', 'on weekends', 'already do', 'skip', 'remove'];
+                    const isCustomization = planKeywords.some(kw => userMessage.toLowerCase().includes(kw));
+
+                    if (isCustomization) {
+                        setMessages(prev => [...prev, {
+                            role: 'assistant',
+                            content: `Got it! I'll adjust your daily plan based on that. Your checklist will reflect this change starting tomorrow. Keep checking off today's tasks in the meantime!`
+                        }]);
+                    } else {
+                        // Display the response
+                        setMessages(prev => [...prev, {
+                            role: 'assistant',
+                            content: data.response_text
+                        }]);
+
+                        // If CO2 was logged, update weekly stats and trigger leaderboard update
+                        if (data.total_saved_today && data.total_saved_today > 0) {
+                            const newWeekly = { ...weeklyStats };
+                            newWeekly.co2Saved += data.total_saved_today;
+                            // Don't increment tasksCompleted for ad-hoc chat actions
+                            // since they're not part of the daily checklist
+                            setWeeklyStats(newWeekly);
+                            saveWeeklyStats(newWeekly);
+
+                            // Show a mini celebration message after a brief delay
+                            setTimeout(() => {
+                                setMessages(prev => [...prev, {
+                                    role: 'system',
+                                    content: `✅ Logged! Your leaderboard rank just updated.`,
+                                    isSystem: true
+                                }]);
+                            }, 800);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    setMessages(prev => [...prev, {
+                        role: 'assistant',
+                        content: "Sorry, I'm having trouble connecting. Please try again."
+                    }]);
+                } finally { setChatLoading(false); }
+            };
+
+            const handleKeyPress = (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+            };
+
+            if (!userId) return <div className="loading">Loading...</div>;
+
+            return (
+                <div className="app">
+                    {/* Tabs */}
+                    {onboardingComplete && (
+                        <div className="tabs">
+                            <button className={`tab ${activeTab === 'today' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('today')}>Today</button>
+                            <button className={`tab ${activeTab === 'ranks' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('ranks')}>Ranks</button>
+                            <button className={`tab ${activeTab === 'chat' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('chat')}>Chat</button>
+                        </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="content">
+                        {/* Survey (pre-onboarding) */}
+                        {showSurvey && (
+                            <OnboardingSurvey userId={userId} onComplete={handleSurveyComplete} />
+                        )}
+
+                        {/* Today Tab */}
+                        {!showSurvey && activeTab === 'today' && (
+                            <TodayTab
+                                profile={userProfile}
+                                streak={streak}
+                                tasks={dailyTasks}
+                                completedTasks={completedTasks}
+                                loggedData={loggedData}
+                                onLogTask={handleLogTask}
+                                onUndoTask={handleUndoTask}
+                                onSwapTask={handleSwapTask}
+                                onShowWeekly={() => setShowWeekly(true)}
+                            />
+                        )}
+
+                        {/* Ranks Tab */}
+                        {!showSurvey && activeTab === 'ranks' && (
+                            <RanksTab
+                                userProfile={userProfile}
+                                userStreak={streak}
+                                weeklyStats={weeklyStats}
+                                todayCo2={Object.values(loggedData).reduce((sum, d) => sum + d.co2, 0)}
+                            />
+                        )}
+
+                        {/* Chat Tab */}
+                        {!showSurvey && activeTab === 'chat' && (
+                            <>
+                                {messages.length === 0 ? (
+                                    <div className="chat-hint">
+                                        <p><strong>Log any climate action here</strong></p>
+                                        <p>Tell me what you did and I'll calculate the impact</p>
+                                        <p style={{ marginTop: '16px', fontSize: '13px' }}>
+                                            Try: <br />
+                                            <strong>"I biked 15 km to campus today"</strong><br />
+                                            <strong>"I had a vegetarian lunch"</strong><br />
+                                            <strong>"I took the bus instead of driving"</strong>
+                                        </p>
+                                        <p style={{ marginTop: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
+                                            You can also customize your daily plan by saying things like<br />
+                                            "I work from home on Fridays" or "I'm already vegan"
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <div className="messages">
+                                        {messages.map((msg, idx) => (
+                                            <div key={idx} className={`message ${msg.isSystem ? 'system' : msg.role}`}>
+                                                <div className="message-bubble">{msg.content}</div>
+                                            </div>
+                                        ))}
+                                        <div ref={messagesEndRef} />
+                                    </div>
+                                )}
+                            </>
+                        )}
+                    </div>
+
+                    {/* Chat input (only on chat tab) */}
+                    {!showSurvey && activeTab === 'chat' && (
+                        <div className="input-container">
+                            <input type="text" placeholder="Tell me about your habits..."
+                                value={input} onChange={(e) => setInput(e.target.value)}
+                                onKeyPress={handleKeyPress} disabled={chatLoading} />
+                            <button onClick={handleSend} disabled={chatLoading || !input.trim()}>
+                                {chatLoading ? '...' : 'Send'}
+                            </button>
+                        </div>
+                    )}
+
+                    {/* Weekly Summary Modal */}
+                    {showWeekly && (
+                        <WeeklySummary
+                            streak={streak}
+                            weeklyStats={weeklyStats}
+                            profile={userProfile}
+                            onClose={() => setShowWeekly(false)}
+                        />
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

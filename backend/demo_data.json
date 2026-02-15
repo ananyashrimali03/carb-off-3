@@ -1,0 +1,2008 @@
+{
+  "students": [
+    {
+      "name": "Sarah",
+      "college": "CFA",
+      "commute": "walk",
+      "diet": "vegetarian",
+      "distance_km": 0
+    },
+    {
+      "name": "Mike",
+      "college": "SCS",
+      "commute": "car",
+      "diet": "meat_mixed",
+      "distance_km": 12
+    },
+    {
+      "name": "Priya",
+      "college": "Tepper",
+      "commute": "bus",
+      "diet": "vegan",
+      "distance_km": 8
+    },
+    {
+      "name": "Jake",
+      "college": "Engineering",
+      "commute": "bike",
+      "diet": "meat_mixed",
+      "distance_km": 5
+    },
+    {
+      "name": "Emma",
+      "college": "Dietrich",
+      "commute": "bus",
+      "diet": "vegetarian",
+      "distance_km": 10
+    },
+    {
+      "name": "David",
+      "college": "SCS",
+      "commute": "car",
+      "diet": "beef_heavy",
+      "distance_km": 15
+    },
+    {
+      "name": "Lisa",
+      "college": "CFA",
+      "commute": "walk",
+      "diet": "vegan",
+      "distance_km": 0
+    },
+    {
+      "name": "Alex",
+      "college": "Tepper",
+      "commute": "train",
+      "diet": "fish",
+      "distance_km": 20
+    },
+    {
+      "name": "Maria",
+      "college": "Engineering",
+      "commute": "bike",
+      "diet": "vegetarian",
+      "distance_km": 4
+    },
+    {
+      "name": "Tom",
+      "college": "SCS",
+      "commute": "bus",
+      "diet": "meat_mixed",
+      "distance_km": 7
+    },
+    {
+      "name": "Nina",
+      "college": "Dietrich",
+      "commute": "walk",
+      "diet": "vegetarian",
+      "distance_km": 0
+    },
+    {
+      "name": "Chris",
+      "college": "Engineering",
+      "commute": "car",
+      "diet": "meat_mixed",
+      "distance_km": 14
+    },
+    {
+      "name": "Amy",
+      "college": "CFA",
+      "commute": "bike",
+      "diet": "vegan",
+      "distance_km": 6
+    },
+    {
+      "name": "Ryan",
+      "college": "Tepper",
+      "commute": "bus",
+      "diet": "beef_heavy",
+      "distance_km": 9
+    },
+    {
+      "name": "Sophia",
+      "college": "SCS",
+      "commute": "walk",
+      "diet": "fish",
+      "distance_km": 0
+    },
+    {
+      "name": "Dan",
+      "college": "Engineering",
+      "commute": "car",
+      "diet": "meat_mixed",
+      "distance_km": 11
+    },
+    {
+      "name": "Rachel",
+      "college": "Dietrich",
+      "commute": "train",
+      "diet": "vegetarian",
+      "distance_km": 18
+    },
+    {
+      "name": "Kevin",
+      "college": "SCS",
+      "commute": "bike",
+      "diet": "vegan",
+      "distance_km": 5
+    },
+    {
+      "name": "Laura",
+      "college": "CFA",
+      "commute": "bus",
+      "diet": "vegetarian",
+      "distance_km": 8
+    },
+    {
+      "name": "Ben",
+      "college": "Tepper",
+      "commute": "car",
+      "diet": "meat_mixed",
+      "distance_km": 13
+    }
+  ],
+  "actions": [
+    {
+      "logged_at": "2026-01-25T00:21:55.593828",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.593852",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.593857",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.593861",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.593864",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.593864",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.593875",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.593877",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.593885",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.593888",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-07T00:21:55.593894",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.593940",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.593944",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594015",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594015",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594023",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594023",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594034",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594034",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594040",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594043",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594043",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594047",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594051",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594051",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594055",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594055",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594059",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594059",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594063",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594065",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594065",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594072",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594135",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594139",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594139",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594143",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594143",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594148",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594150",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594152",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594156",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594159",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594159",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594171",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594174",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594176",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594178",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594208",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594208",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594213",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594215",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594215",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594217",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594219",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594220",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594220",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594224",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594224",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594227",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594227",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594232",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594232",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594235",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594235",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594237",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 20,
+      "co2_saved_kg": 2.4200000000000004
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594237",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594237",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-07T00:21:55.594242",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-07T00:21:55.594242",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594291",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594294",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594311",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594315",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594316",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594318",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.594323",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594325",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594325",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594329",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594358",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594360",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594360",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594363",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594363",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594366",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594366",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594366",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594369",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594369",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.594373",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594374",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594374",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594377",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594377",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594379",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594381",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594381",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594383",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 40,
+      "co2_saved_kg": 6.76
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594383",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594383",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594387",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594412",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594412",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594416",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594418",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594418",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594423",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594423",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594423",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594427",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594427",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594430",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.594431",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594433",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594435",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594435",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594437",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594437",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594440",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594441",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 8,
+      "co2_saved_kg": 1.68
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594441",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594443",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-07T00:21:55.594445",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594467",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594469",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594471",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594472",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594474",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594478",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594478",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594481",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594485",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594487",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594489",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 14,
+      "co2_saved_kg": 1.694
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594515",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594515",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594522",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594523",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594525",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594528",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594529",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594531",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594533",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594535",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594535",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594557",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594561",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594569",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594592",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594592",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594595",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594595",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594598",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594598",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594600",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594602",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594602",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594602",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594605",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594607",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594609",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594610",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594610",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594613",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594613",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594613",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594616",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 12,
+      "co2_saved_kg": 2.52
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594618",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594634",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594634",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594640",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594642",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594643",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594645",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594647",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.594649",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594651",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594651",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594655",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594659",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594661",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594663",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 18,
+      "co2_saved_kg": 2.178
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594711",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.594716",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.594719",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.594722",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.594724",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594730",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-02-07T00:21:55.594733",
+      "category": "food",
+      "action_type": "fish_meal",
+      "quantity": 1,
+      "co2_saved_kg": 0.7000000000000002
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.594768",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.594772",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.594777",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.594780",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.594803",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594805",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.594805",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594809",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.594809",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594812",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.594812",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594815",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.594815",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.595115",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.595115",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.595149",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.595150",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.595150",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595154",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595154",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.595157",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.595157",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.595164",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.595164",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.595167",
+      "category": "transport",
+      "action_type": "train_electric",
+      "quantity": 36,
+      "co2_saved_kg": 6.084
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.595167",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-07T00:21:55.595170",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.595244",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.595244",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.595248",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.595248",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.595250",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.595250",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.595253",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.595253",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.595255",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.595255",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.595257",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.595259",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.595260",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.595260",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595263",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595263",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595263",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.595269",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.595269",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.595269",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.595280",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.595280",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.595280",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.595283",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "quantity": 10,
+      "co2_saved_kg": 2.1
+    },
+    {
+      "logged_at": "2026-02-06T00:21:55.595285",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.6
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.595364",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-25T00:21:55.595364",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.595368",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.595369",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.595369",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-01-28T00:21:55.595372",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-29T00:21:55.595373",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-01-30T00:21:55.595375",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.595381",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-01T00:21:55.595381",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595383",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595383",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.595504",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-03T00:21:55.595504",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "quantity": 1,
+      "co2_saved_kg": 2.0
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.595507",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.595509",
+      "category": "transport",
+      "action_type": "bus",
+      "quantity": 16,
+      "co2_saved_kg": 1.936
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.595509",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-01-26T00:21:55.595553",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "quantity": 1,
+      "co2_saved_kg": 0.08
+    },
+    {
+      "logged_at": "2026-01-27T00:21:55.595555",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "quantity": 1,
+      "co2_saved_kg": 0.3
+    },
+    {
+      "logged_at": "2026-01-31T00:21:55.595560",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-02T00:21:55.595563",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-04T00:21:55.595565",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "quantity": 1,
+      "co2_saved_kg": 0.9
+    },
+    {
+      "logged_at": "2026-02-05T00:21:55.595567",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "quantity": 1,
+      "co2_saved_kg": 0.03
+    }
+  ],
+  "summary": {
+    "total_actions": 265,
+    "total_co2_saved_kg": 532.3,
+    "num_students": 20,
+    "period_days": 14,
+    "generated_at": "2026-02-07T00:21:55.595655"
+  }
+}

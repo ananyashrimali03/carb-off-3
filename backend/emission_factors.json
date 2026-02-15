@@ -1,0 +1,275 @@
+{
+  "factors": [
+    {
+      "factor_id": "food_beef_heavy_meal",
+      "category": "food",
+      "action_type": "beef_heavy_meal",
+      "display_name": "Beef-heavy meal",
+      "emission_factor_kg_co2e": 7.2,
+      "unit": "per meal",
+      "source": "Poore & Nemecek 2018, Science; DEFRA 2024",
+      "notes": "Average beef-dominant meal including sides, cooking energy"
+    },
+    {
+      "factor_id": "food_meat_mixed_meal",
+      "category": "food",
+      "action_type": "meat_mixed_meal",
+      "display_name": "Mixed meat meal (chicken/pork)",
+      "emission_factor_kg_co2e": 3.5,
+      "unit": "per meal",
+      "source": "DEFRA 2024",
+      "notes": "Chicken or pork as primary protein"
+    },
+    {
+      "factor_id": "food_fish_meal",
+      "category": "food",
+      "action_type": "fish_meal",
+      "display_name": "Fish meal",
+      "emission_factor_kg_co2e": 2.8,
+      "unit": "per meal",
+      "source": "Poore & Nemecek 2018",
+      "notes": "Average fish meal"
+    },
+    {
+      "factor_id": "food_vegetarian_meal",
+      "category": "food",
+      "action_type": "vegetarian_meal",
+      "display_name": "Vegetarian meal (with dairy/eggs)",
+      "emission_factor_kg_co2e": 1.5,
+      "unit": "per meal",
+      "source": "Poore & Nemecek 2018",
+      "notes": "Vegetarian with dairy and eggs"
+    },
+    {
+      "factor_id": "food_vegan_meal",
+      "category": "food",
+      "action_type": "vegan_meal",
+      "display_name": "Fully plant-based meal",
+      "emission_factor_kg_co2e": 0.9,
+      "unit": "per meal",
+      "source": "Poore & Nemecek 2018",
+      "notes": "Fully plant-based, no animal products"
+    },
+    {
+      "factor_id": "transport_car_petrol",
+      "category": "transport",
+      "action_type": "car_petrol",
+      "display_name": "Petrol/gas car",
+      "emission_factor_kg_co2e": 0.21,
+      "unit": "per km",
+      "source": "EPA 2024",
+      "notes": "Average passenger vehicle"
+    },
+    {
+      "factor_id": "transport_car_diesel",
+      "category": "transport",
+      "action_type": "car_diesel",
+      "display_name": "Diesel car",
+      "emission_factor_kg_co2e": 0.17,
+      "unit": "per km",
+      "source": "EPA 2024",
+      "notes": "Average diesel vehicle"
+    },
+    {
+      "factor_id": "transport_car_electric",
+      "category": "transport",
+      "action_type": "car_electric",
+      "display_name": "Electric car",
+      "emission_factor_kg_co2e": 0.05,
+      "unit": "per km",
+      "source": "EPA 2024 + eGRID avg",
+      "notes": "US average grid electricity"
+    },
+    {
+      "factor_id": "transport_bus",
+      "category": "transport",
+      "action_type": "bus",
+      "display_name": "Public bus",
+      "emission_factor_kg_co2e": 0.089,
+      "unit": "per km",
+      "source": "DEFRA 2024",
+      "notes": "Average city bus"
+    },
+    {
+      "factor_id": "transport_train_electric",
+      "category": "transport",
+      "action_type": "train_electric",
+      "display_name": "Electric train/metro",
+      "emission_factor_kg_co2e": 0.041,
+      "unit": "per km",
+      "source": "DEFRA 2024",
+      "notes": "Electric rail transit"
+    },
+    {
+      "factor_id": "transport_bike_walk",
+      "category": "transport",
+      "action_type": "bike_walk",
+      "display_name": "Bicycle or walking",
+      "emission_factor_kg_co2e": 0.0,
+      "unit": "per km",
+      "source": "—",
+      "notes": "Zero direct emissions"
+    },
+    {
+      "factor_id": "transport_carpool_2",
+      "category": "transport",
+      "action_type": "carpool_2",
+      "display_name": "Carpool (2 people)",
+      "emission_factor_kg_co2e": 0.105,
+      "unit": "per km",
+      "source": "EPA 2024 / 2",
+      "notes": "Car emissions divided by 2"
+    },
+    {
+      "factor_id": "transport_carpool_3plus",
+      "category": "transport",
+      "action_type": "carpool_3plus",
+      "display_name": "Carpool (3+ people)",
+      "emission_factor_kg_co2e": 0.07,
+      "unit": "per km",
+      "source": "EPA 2024 / 3",
+      "notes": "Car emissions divided by 3"
+    },
+    {
+      "factor_id": "transport_flight_short",
+      "category": "transport",
+      "action_type": "flight_short",
+      "display_name": "Short-haul flight (<1500km)",
+      "emission_factor_kg_co2e": 0.255,
+      "unit": "per km",
+      "source": "DEFRA 2024",
+      "notes": "Economy class, short distance"
+    },
+    {
+      "factor_id": "transport_flight_long",
+      "category": "transport",
+      "action_type": "flight_long",
+      "display_name": "Long-haul flight (>1500km)",
+      "emission_factor_kg_co2e": 0.150,
+      "unit": "per km",
+      "source": "DEFRA 2024",
+      "notes": "Economy class, long distance (per km lower due to cruise efficiency)"
+    },
+    {
+      "factor_id": "home_ac_hour",
+      "category": "home_energy",
+      "action_type": "ac_hour",
+      "display_name": "Air conditioning",
+      "emission_factor_kg_co2e": 0.46,
+      "unit": "per hour",
+      "source": "EPA eGRID avg × 1.2kWh",
+      "notes": "Average window AC unit"
+    },
+    {
+      "factor_id": "home_heating_gas_hour",
+      "category": "home_energy",
+      "action_type": "heating_gas_hour",
+      "display_name": "Gas heating",
+      "emission_factor_kg_co2e": 0.52,
+      "unit": "per hour",
+      "source": "EPA",
+      "notes": "Natural gas heating per hour"
+    },
+    {
+      "factor_id": "home_lights_off_hour",
+      "category": "home_energy",
+      "action_type": "lights_off_hour",
+      "display_name": "Lights off (LED equiv)",
+      "emission_factor_kg_co2e": 0.004,
+      "unit": "per hour",
+      "source": "EPA eGRID",
+      "notes": "Savings from turning off lights"
+    },
+    {
+      "factor_id": "home_cold_wash",
+      "category": "home_energy",
+      "action_type": "cold_wash",
+      "display_name": "Cold water laundry load",
+      "emission_factor_kg_co2e": 0.6,
+      "unit": "per load",
+      "source": "DEFRA 2024",
+      "notes": "Savings vs hot water wash"
+    },
+    {
+      "factor_id": "home_line_dry",
+      "category": "home_energy",
+      "action_type": "line_dry",
+      "display_name": "Line dry vs dryer",
+      "emission_factor_kg_co2e": 2.5,
+      "unit": "per load",
+      "source": "DEFRA 2024",
+      "notes": "Savings from air drying"
+    },
+    {
+      "factor_id": "lifestyle_reusable_bottle",
+      "category": "lifestyle",
+      "action_type": "reusable_bottle",
+      "display_name": "Reusable bottle vs plastic",
+      "emission_factor_kg_co2e": 0.08,
+      "unit": "per use",
+      "source": "DEFRA 2024",
+      "notes": "Avoided plastic bottle"
+    },
+    {
+      "factor_id": "lifestyle_reusable_bag",
+      "category": "lifestyle",
+      "action_type": "reusable_bag",
+      "display_name": "Reusable bag vs plastic",
+      "emission_factor_kg_co2e": 0.03,
+      "unit": "per use",
+      "source": "DEFRA 2024",
+      "notes": "Avoided plastic bag"
+    },
+    {
+      "factor_id": "lifestyle_no_food_waste",
+      "category": "lifestyle",
+      "action_type": "no_food_waste",
+      "display_name": "No food waste today",
+      "emission_factor_kg_co2e": 0.9,
+      "unit": "per day",
+      "source": "FAO 2023",
+      "notes": "Average daily food waste avoided"
+    },
+    {
+      "factor_id": "lifestyle_local_produce",
+      "category": "lifestyle",
+      "action_type": "local_produce",
+      "display_name": "Local/seasonal produce",
+      "emission_factor_kg_co2e": 0.3,
+      "unit": "per meal",
+      "source": "DEFRA 2024",
+      "notes": "Reduced transport emissions"
+    },
+    {
+      "factor_id": "lifestyle_secondhand_clothing",
+      "category": "lifestyle",
+      "action_type": "secondhand_clothing",
+      "display_name": "Bought secondhand clothing",
+      "emission_factor_kg_co2e": 5.5,
+      "unit": "per item",
+      "source": "EPA",
+      "notes": "Avoided new garment production"
+    },
+    {
+      "factor_id": "lifestyle_secondhand_electronics",
+      "category": "lifestyle",
+      "action_type": "secondhand_electronics",
+      "display_name": "Bought secondhand electronics",
+      "emission_factor_kg_co2e": 50.0,
+      "unit": "per item",
+      "source": "EPA",
+      "notes": "Avoided new device production"
+    }
+  ],
+  "equivalencies": {
+    "1": "charging your phone 122 times",
+    "2": "driving 9.5 km in a petrol car",
+    "5": "driving 24 km in a petrol car",
+    "10": "one new pair of jeans",
+    "20": "powering your home for 1 day",
+    "50": "driving 240 km in a petrol car",
+    "100": "powering your home for a week",
+    "500": "one person's emissions for 2 weeks",
+    "1000": "one month of average US household emissions"
+  }
+}
